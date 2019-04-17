@@ -23,10 +23,11 @@ public class Main {
         
         try {
             Statement stmt = con.conexion().createStatement();
-            ResultSet rset = stmt.executeQuery("Select (10-20) from dual");
+            ResultSet rset = stmt.executeQuery("Select (10-20), sysdate from dual");
             
             while(rset.next()){
                 System.out.println(rset.getInt(1));
+                System.out.println(rset.getDate(2));
                 
             }
             stmt.close();
