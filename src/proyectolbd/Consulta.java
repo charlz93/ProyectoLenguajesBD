@@ -5,6 +5,7 @@
  */
 package proyectolbd;
 
+import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -15,7 +16,7 @@ import java.util.logging.Logger;
  *
  * @author carmo
  */
-public class Funciones {
+public class Consulta {
     Conexion con = new Conexion();
     
     private Statement declaracion(){
@@ -23,14 +24,19 @@ public class Funciones {
         try {
             stmt = con.conexion().createStatement();
         } catch (SQLException ex) {
-            Logger.getLogger(Funciones.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Consulta.class.getName()).log(Level.SEVERE, null, ex);
         }
         return stmt;
     }
-    public ResultSet consultaCliente(int id) throws SQLException{
-        ResultSet rset = declaracion().executeQuery("Select * from v_clientes where id_cliente = "+id);
+    public ResultSet consultaSP(String consulta) throws SQLException{
+        ResultSet rset = declaracion().executeQuery(consulta);
         declaracion().close();
         return rset;
+    }
+    
+    public CallableStatement consultaFN(String consulta) throws SQLException{
+        CallableStatement cs = con.conexion().prepareCall(consulta);
+        return cs;
     }
             
             

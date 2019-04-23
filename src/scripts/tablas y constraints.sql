@@ -2,7 +2,7 @@ create table cliente(id_cliente number, nombre varchar2(50),correo varchar2(50),
 
 create table direccion(id_direccion number, ciudad varchar2(30), provincia varchar2(30), pais varchar2(30), descripcion varchar2(100));
 
-create table factura_cab(id_factura number,tipo varchar2(2), id_cliente number, metodo_pago varchar2(10),total number(5,2),total_impuesto number(5,2),fecha date,hora date,id_vendedor number, impuesto number(5,2));
+create table factura_cab(id_factura number,tipo varchar2(2), id_cliente number, metodo_pago varchar2(10),total number(5,2),total_impuesto number(5,2),fecha date,hora date,id_vendedor number, impuesto number(5,2), referencia);
 
 create table vendedor(id_vendedor number, nombre varchar2(50), usuario varchar2(20) not null unique, contrasenna varchar2(40) not null,max_descuento number);
 

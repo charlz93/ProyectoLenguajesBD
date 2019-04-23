@@ -8,6 +8,7 @@ package proyectolbd;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import proyectolbd.interfaz.iniciosesion;
 
 /**
  *
@@ -19,9 +20,11 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Funciones fn = new Funciones();
+        iniciosesion ini = new iniciosesion();
+        ini.setVisible(true);
+        Consulta fn = new Consulta();
         try {
-            ResultSet rset = fn.consultaCliente(1);
+            ResultSet rset = fn.consultaSP("Select * from v_clientes");
             while(rset.next()){
                 System.out.println(rset.getString(2));
             }
