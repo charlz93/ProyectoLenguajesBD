@@ -109,3 +109,29 @@ begin
 begin
  :new.id_stock := stock_SEQ.nextval;
  end;
+ 
+ create or replace trigger manejo_stock
+ after insert on factura_lin
+ for each row
+ begin
+    if(:new.tipo = 'FV') then
+        update stock s
+        set s.cantidad = s.cantidad - :new.cantidad
+        where s.id_producto = :new.id_producto and s.id_almacen = :new.id_almacen;
+    elsif(:new.tipo in ('FC','NC')) then 
+        update stock s
+        set s.cantidad = s.cantidad + :new.cantidad
+        where s.id_producto = :new.id_producto and s.id_almacen = :new.id_almacen;
+    end if;
+ end;
+ 
+ create or replace trigger anular_fComopra
+ after update on factura_lin
+ for each row
+ begin
+    if (:new.cantidad = :old.cantidad) then
+        update stock s
+        set s.cantidad = s.cantidad - :old.cantidad
+        where s.id_producto = :old.id_producto and s.id_almacen = :old.id_almacen;
+    end if;
+end;
