@@ -19,21 +19,16 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Conexion con = new Conexion();
-        
+        Funciones fn = new Funciones();
         try {
-            Statement stmt = con.conexion().createStatement();
-            ResultSet rset = stmt.executeQuery("Select (10-20), sysdate from dual");
-            
+            ResultSet rset = fn.consultaCliente(1);
             while(rset.next()){
-                System.out.println(rset.getInt(1));
-                System.out.println(rset.getDate(2));
-                
+                System.out.println(rset.getString(2));
             }
-            stmt.close();
         } catch (SQLException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         
     }
     

@@ -5,10 +5,33 @@
  */
 package proyectolbd;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author carmo
  */
 public class Funciones {
-    public 
+    Conexion con = new Conexion();
+    
+    private Statement declaracion(){
+        Statement stmt = null;
+        try {
+            stmt = con.conexion().createStatement();
+        } catch (SQLException ex) {
+            Logger.getLogger(Funciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return stmt;
+    }
+    public ResultSet consultaCliente(int id) throws SQLException{
+        ResultSet rset = declaracion().executeQuery("Select * from v_clientes where id_cliente = "+id);
+        declaracion().close();
+        return rset;
+    }
+            
+            
 }
