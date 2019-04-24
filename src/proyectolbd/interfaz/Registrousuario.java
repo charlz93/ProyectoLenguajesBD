@@ -13,14 +13,14 @@ import javax.swing.table.*;
 import proyectolbd.Consulta;
 
 /*
- * @author Sebastian
+ * @author Carlos Morales
  */
-public class registrousuario extends javax.swing.JFrame {
+public class Registrousuario extends javax.swing.JFrame {
 
     /**
      * Creates new form registrousuario
      */
-    public registrousuario() {
+    public Registrousuario() {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -34,7 +34,7 @@ public class registrousuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Clientes = new javax.swing.JFrame();
+        fClientes = new javax.swing.JFrame();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -68,33 +68,11 @@ public class registrousuario extends javax.swing.JFrame {
         bCancelar = new javax.swing.JButton();
         bGuardar = new javax.swing.JButton();
         bBuscar = new javax.swing.JButton();
+        bNuevo = new javax.swing.JButton();
 
-        Clientes.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        Clientes.setMinimumSize(new java.awt.Dimension(867, 482));
+        fClientes.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        fClientes.setMinimumSize(new java.awt.Dimension(867, 482));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Codigo", "Nombre", "Nombre Comercial", "Cedula", "Correo"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
         jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jScrollPane2.setViewportView(jTable1);
 
@@ -120,33 +98,33 @@ public class registrousuario extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout ClientesLayout = new javax.swing.GroupLayout(Clientes.getContentPane());
-        Clientes.getContentPane().setLayout(ClientesLayout);
-        ClientesLayout.setHorizontalGroup(
-            ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ClientesLayout.createSequentialGroup()
+        javax.swing.GroupLayout fClientesLayout = new javax.swing.GroupLayout(fClientes.getContentPane());
+        fClientes.getContentPane().setLayout(fClientesLayout);
+        fClientesLayout.setHorizontalGroup(
+            fClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fClientesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(fClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 847, Short.MAX_VALUE)
-                    .addGroup(ClientesLayout.createSequentialGroup()
+                    .addGroup(fClientesLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(tfBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jSeparator2))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ClientesLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fClientesLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSelecionar)
                 .addGap(26, 26, 26)
                 .addComponent(jCancelarTable)
                 .addGap(27, 27, 27))
         );
-        ClientesLayout.setVerticalGroup(
-            ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ClientesLayout.createSequentialGroup()
+        fClientesLayout.setVerticalGroup(
+            fClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fClientesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(fClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(tfBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -154,7 +132,7 @@ public class registrousuario extends javax.swing.JFrame {
                 .addGap(13, 13, 13)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addGroup(ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(fClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCancelarTable)
                     .addComponent(jSelecionar))
                 .addGap(19, 19, 19))
@@ -220,11 +198,23 @@ public class registrousuario extends javax.swing.JFrame {
         });
 
         bGuardar.setText("Guardar");
+        bGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bGuardarMouseClicked(evt);
+            }
+        });
 
         bBuscar.setText("Buscar");
         bBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bBuscarActionPerformed(evt);
+            }
+        });
+
+        bNuevo.setText("Nuevo");
+        bNuevo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bNuevoMouseClicked(evt);
             }
         });
 
@@ -290,6 +280,8 @@ public class registrousuario extends javax.swing.JFrame {
                         .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(bNuevo)
+                                .addGap(18, 18, 18)
                                 .addComponent(bBuscar)
                                 .addGap(18, 18, 18)
                                 .addComponent(bGuardar)
@@ -341,7 +333,8 @@ public class registrousuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bCancelar)
                     .addComponent(bGuardar)
-                    .addComponent(bBuscar))
+                    .addComponent(bBuscar)
+                    .addComponent(bNuevo))
                 .addContainerGap())
         );
 
@@ -362,9 +355,9 @@ public class registrousuario extends javax.swing.JFrame {
 
     private void bBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarActionPerformed
         try {
-            Clientes.setVisible(true);
+            fClientes.setVisible(true);
 
-            Clientes.setLocationRelativeTo(this);
+            fClientes.setLocationRelativeTo(this);
             Consulta c = new Consulta();
             ResultSet consul = c.consultaSP("SELECT ID_CLIENTE,NOMBRE,NOMBRE_COMERCIAL,NIF,CORREO FROM CLIENTE");
 
@@ -376,7 +369,7 @@ public class registrousuario extends javax.swing.JFrame {
     }//GEN-LAST:event_bBuscarActionPerformed
 
     private void jCancelarTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCancelarTableMouseClicked
-        Clientes.dispose();
+        fClientes.dispose();
     }//GEN-LAST:event_jCancelarTableMouseClicked
 
     private void tfBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfBuscarKeyReleased
@@ -399,15 +392,69 @@ public class registrousuario extends javax.swing.JFrame {
                 tfTelefono.setText(consul.getString("Telefono"));
                 tfPais.setText(consul.getString("Pais"));
                 tfCiudad.setText(consul.getString("Ciudad");
-                tfProvincia.setText(consul.getString("Provincia")));
+                tfProvincia.setText(consul.getString("Provincia"))
+                );
                 jtDireccion.setText(consul.getString("Descripcion"));
 
-                Clientes.dispose();
+                fClientes.dispose();
             }
         } catch (SQLException ex) {
             Logger.getLogger(iniciosesion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jSelecionarActionPerformed
+
+    private void bGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bGuardarMouseClicked
+        try {
+            int cod = Integer.parseInt(tfCodigo.getText());
+            Consulta c = new Consulta();
+            ResultSet consul = c.consultaSP("Select c.*,d.* from cliente c left join direccion d on c.id_clinete = d.id_cliente where id_cliente = " + cod);
+            ResultSet consul2;
+            int codigo, telefono, cedula, id_direccion;
+            String nombre, nombreC, correo, pais, ciudad, provincia, descripcion;
+            
+            codigo = tfCodigo.getText();
+            
+            if (consul.next()) {
+                
+
+                consul2 = c.consultaSP("update cliente "
+                        + "set nombre = " + nombre
+                        + ", nombre_comercial = " + nombreC
+                        + ", telefono = " + telefono
+                        + ", nif = " + cedula
+                        + ", correo = " + correo
+                        + " where id_cliente = " + codigo);
+                consul2 = c.consultaSP("update direccion"
+                        + "set pais = " + pais
+                        + ", ciudad = " + ciudad
+                        + ", provincia = " + provincia
+                        + "descripcion = " + descripcion
+                        + " where id_cliente = " + codigo);
+            } else {
+                
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(iniciosesion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bGuardarMouseClicked
+
+    private void bNuevoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bNuevoMouseClicked
+        int respuesta = JOptionPane.YES_NO_OPTION;
+        JOptionPane.showConfirmDialog(null, "Se perderan los cambios sin guardar. \n ¿Desea continuar?", "WARNING",respuesta);
+        if (respuesta == JOptionPane.YES_OPTION){
+            tfCedula.setText("");
+            tfCiudad.setText("");
+            tfCodigo.setText("[auto]");
+            tfCorreo.setText("");
+            tfNombre.setText("");
+            tfNombreComercial.setText("");
+            tfPais.setText("");
+            tfProvincia.setText("");
+            tfTelefono.setText("");
+            jtDireccion.setText("");
+        }
+    }//GEN-LAST:event_bNuevoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -426,27 +473,28 @@ public class registrousuario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(registrousuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registrousuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(registrousuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registrousuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(registrousuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registrousuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(registrousuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registrousuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new registrousuario().setVisible(true);
+                new Registrousuario().setVisible(true);
             }
         });
     }
 
-    public final void tableModel1(ResultSet rec) {
+    public void tableModel1(ResultSet rec) {
         try {
-            DefaultTableModel m = new javax.swing.table.DefaultTableModel(
+            DefaultTableModel model = new javax.swing.table.DefaultTableModel(
                     new Object[][]{},
                     new String[]{
                         "Codigo", "Nombre", "Nombre Comercial", "Cedula", "Correo"
@@ -458,13 +506,14 @@ public class registrousuario extends javax.swing.JFrame {
                     //all cells false
                     return false;
                 }
+            ;
             };
             while (rec.next()) {
-                m.addRow(new Object[]{rec.getInt("ID_CLIENTE"), rec.getString("NOMBRE"), rec.getString("NOMBRE_COMERCIAL"), rec.getInt("NIF"), rec.getString("CORREO")});
+                model.addRow(new Object[]{rec.getInt("ID_CLIENTE"), rec.getString("NOMBRE"), rec.getString("NOMBRE_COMERCIAL"), rec.getInt("NIF"), rec.getString("CORREO")});
             }
-            jTable1.setModel(m);
+            jTable1.setModel(model);
         } catch (SQLException ex) {
-            Logger.getLogger(registrousuario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Registrousuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -474,15 +523,16 @@ public class registrousuario extends javax.swing.JFrame {
             ResultSet consul = c.consultaSP("SELECT ID_CLIENTE,NOMBRE,NOMBRE_COMERCIAL,NIF,CORREO FROM CLIENTE WHERE NOMBRE LIKE '" + nom + "%'");
             tableModel1(consul);
         } catch (SQLException ex) {
-            Logger.getLogger(iniciosesion.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Registrousuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JFrame Clientes;
     private javax.swing.JButton bBuscar;
     private javax.swing.JButton bCancelar;
     private javax.swing.JButton bGuardar;
+    private javax.swing.JButton bNuevo;
+    private javax.swing.JFrame fClientes;
     private javax.swing.JButton jCancelarTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
