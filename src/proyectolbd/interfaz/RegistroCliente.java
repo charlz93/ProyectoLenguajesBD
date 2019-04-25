@@ -15,12 +15,12 @@ import proyectolbd.*;
 /*
  * @author Carlos Morales
  */
-public class Registrousuario extends javax.swing.JFrame {
+public class RegistroCliente extends javax.swing.JFrame {
 
     /**
      * Creates new form registrousuario
      */
-    public Registrousuario() {
+    public RegistroCliente() {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -196,6 +196,11 @@ public class Registrousuario extends javax.swing.JFrame {
                 bCancelarMouseClicked(evt);
             }
         });
+        bCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCancelarActionPerformed(evt);
+            }
+        });
 
         bGuardar.setText("Guardar");
         bGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -350,6 +355,8 @@ public class Registrousuario extends javax.swing.JFrame {
     }//GEN-LAST:event_tfPaisActionPerformed
 
     private void bCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCancelarMouseClicked
+        PanelPrincipal pp = new PanelPrincipal();
+        pp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bCancelarMouseClicked
 
@@ -431,7 +438,7 @@ public class Registrousuario extends javax.swing.JFrame {
                 consul.next();
                 codigo = Integer.parseInt(consul.getString("id_cliente"));
                 c.update("INSERT INTO DIRECCION(id_direccion, ciudad, provincia, pais, descripcion, id_cliente) values (null, '"
-                        +ciudad+ "', '"+provincia+ "', '"+pais+ "', '"+descripcion+ ", "+codigo+ ")");
+                        +ciudad+ "', '"+provincia+ "', '"+pais+ "', '"+descripcion+ "', "+codigo+ ")");
             } else {
                 codigo = Integer.parseInt(tfCodigo.getText());
                 consul = c.consultaSP("Select c.*,d.* from cliente c left join direccion d on c.id_clinete = d.id_cliente where id_cliente = " + codigo+"");
@@ -455,7 +462,12 @@ public class Registrousuario extends javax.swing.JFrame {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(iniciosesion.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
+        }finally{
+            JOptionPane.showMessageDialog(null, "Cliente Guardado con Exito");
+            this.dispose();
+            PanelPrincipal pPanel = new PanelPrincipal();
+            pPanel.setVisible(true);
         }
     }//GEN-LAST:event_bGuardarMouseClicked
 
@@ -476,6 +488,10 @@ public class Registrousuario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bNuevoMouseClicked
 
+    private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bCancelarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -493,21 +509,23 @@ public class Registrousuario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Registrousuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Registrousuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Registrousuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Registrousuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Registrousuario().setVisible(true);
+                new RegistroCliente().setVisible(true);
             }
         });
     }
@@ -533,7 +551,7 @@ public class Registrousuario extends javax.swing.JFrame {
             }
             jTable1.setModel(model);
         } catch (SQLException ex) {
-            Logger.getLogger(Registrousuario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RegistroCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -543,7 +561,7 @@ public class Registrousuario extends javax.swing.JFrame {
             ResultSet consul = c.consultaSP("SELECT ID_CLIENTE,NOMBRE,NOMBRE_COMERCIAL,NIF,CORREO FROM CLIENTE WHERE NOMBRE LIKE '" + nom + "%'");
             tableModel1(consul);
         } catch (SQLException ex) {
-            Logger.getLogger(Registrousuario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RegistroCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

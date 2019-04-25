@@ -122,9 +122,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jMenu1.setText("Ficheros");
 
         miClientes.setText("Clientes");
-        miClientes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                miClientesMouseClicked(evt);
+        miClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miClientesActionPerformed(evt);
             }
         });
         jMenu1.add(miClientes);
@@ -213,9 +213,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
-    private void miClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miClientesMouseClicked
-        
-    }//GEN-LAST:event_miClientesMouseClicked
+    private void miClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miClientesActionPerformed
+        RegistroCliente rc = new RegistroCliente();
+        rc.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_miClientesActionPerformed
 
     /**
      * @param args the command line arguments
