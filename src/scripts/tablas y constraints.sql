@@ -18,7 +18,7 @@ alter table cliente add constraint pk_cliente primary key (id_cliente);
 
 alter table direccion add constraint pk_direccion primary key (id_direccion);
 
-alter table factura_cab add constraint pk_factura_cab primary key (id_factura);
+alter table factura_cab add constraint pk_factura_cab primary key (id_factura,tipo);
 
 alter table vendedor add constraint pk_vendedor primary key (id_vendedor);
 
@@ -36,7 +36,7 @@ alter table factura_cab add constraint fk_cliente_factura foreign key (id_client
 
 alter table factura_cab add constraint fk_factura_vendedor foreign key (id_vendedor) references vendedor(id_vendedor);
 
-alter table factura_lin add constraint fk_cab_lin foreign key (id_factura) references factura_cab(id_factura);
+alter table factura_lin add constraint fk_cab_lin foreign key (id_factura,tipo) references factura_cab(id_factura,tipo);
 
 alter table factura_lin add constraint fk_factura_lin_producto foreign key (id_producto) references producto(id_producto);
 

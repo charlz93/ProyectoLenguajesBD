@@ -114,11 +114,11 @@ begin
  after insert on factura_lin
  for each row
  begin
-    if(:new.tipo = 'FV') then
+    if(:new.tipo in ('FV','CA')) then --FV = Factura de venta y CA = Compra abonada
         update stock s
         set s.cantidad = s.cantidad - :new.cantidad
         where s.id_producto = :new.id_producto and s.id_almacen = :new.id_almacen;
-    elsif(:new.tipo in ('FC','NC')) then 
+    elsif(:new.tipo in ('FC','NC')) then -- FC = Factura de compra, NC = Nota de Credito
         update stock s
         set s.cantidad = s.cantidad + :new.cantidad
         where s.id_producto = :new.id_producto and s.id_almacen = :new.id_almacen;
@@ -135,3 +135,14 @@ begin
         where s.id_producto = :old.id_producto and s.id_almacen = :old.id_almacen;
     end if;
 end;
+
+CREATE SEQUENCE SEQ_NOTA_CREDITO
+INCREMENT BY 1 
+START WITH 1 
+NOCACHE;
+
+CREATE SEQUENCE SEQ_fact_compra
+INCREMENT BY 1 
+START WITH 1 
+NOCACHE;
+
