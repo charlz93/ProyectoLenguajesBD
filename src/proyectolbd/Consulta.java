@@ -17,9 +17,10 @@ import java.util.logging.Logger;
  * @author carmo
  */
 public class Consulta {
+
     Conexion con = new Conexion();
-    
-    private Statement declaracion(){
+
+    private Statement declaracion() {
         Statement stmt = null;
         try {
             stmt = con.conexion().createStatement();
@@ -28,16 +29,25 @@ public class Consulta {
         }
         return stmt;
     }
-    public ResultSet consultaSP(String consulta) throws SQLException{
+
+    public ResultSet consultaSP(String consulta) throws SQLException {
         ResultSet rset = declaracion().executeQuery(consulta);
         declaracion().close();
         return rset;
     }
-    
-    public CallableStatement consultaFN(String consulta) throws SQLException{
+
+    public CallableStatement consultaFN(String consulta) throws SQLException {
         CallableStatement cs = con.conexion().prepareCall(consulta);
         return cs;
     }
+
+    public void update(String insert) throws SQLException {
+        try {
+            declaracion().execute(insert);
+            declaracion().close();
             
-            
+        } catch (SQLException ex) {
+            Logger.getLogger(Consulta.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }
 }

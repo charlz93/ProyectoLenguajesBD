@@ -10,7 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.*;
-import proyectolbd.Consulta;
+import proyectolbd.*;
 
 /*
  * @author Carlos Morales
@@ -391,9 +391,8 @@ public class Registrousuario extends javax.swing.JFrame {
                 tfCorreo.setText(consul.getString("Correo"));
                 tfTelefono.setText(consul.getString("Telefono"));
                 tfPais.setText(consul.getString("Pais"));
-                tfCiudad.setText(consul.getString("Ciudad");
-                tfProvincia.setText(consul.getString("Provincia"))
-                );
+                tfCiudad.setText(consul.getString("Ciudad"));
+                tfProvincia.setText(consul.getString("Provincia"));
                 jtDireccion.setText(consul.getString("Descripcion"));
 
                 fClientes.dispose();
@@ -405,33 +404,54 @@ public class Registrousuario extends javax.swing.JFrame {
 
     private void bGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bGuardarMouseClicked
         try {
-            int cod = Integer.parseInt(tfCodigo.getText());
+            
+            
             Consulta c = new Consulta();
-            ResultSet consul = c.consultaSP("Select c.*,d.* from cliente c left join direccion d on c.id_clinete = d.id_cliente where id_cliente = " + cod);
+            ResultSet consul;
             ResultSet consul2;
-            int codigo, telefono, cedula, id_direccion;
+            int codigo, telefono;
+            long cedula;
             String nombre, nombreC, correo, pais, ciudad, provincia, descripcion;
-            
-            codigo = tfCodigo.getText();
-            
-            if (consul.next()) {
-                
 
-                consul2 = c.consultaSP("update cliente "
-                        + "set nombre = " + nombre
-                        + ", nombre_comercial = " + nombreC
-                        + ", telefono = " + telefono
-                        + ", nif = " + cedula
-                        + ", correo = " + correo
-                        + " where id_cliente = " + codigo);
-                consul2 = c.consultaSP("update direccion"
-                        + "set pais = " + pais
-                        + ", ciudad = " + ciudad
-                        + ", provincia = " + provincia
-                        + "descripcion = " + descripcion
-                        + " where id_cliente = " + codigo);
+            telefono = Integer.parseInt(tfTelefono.getText());
+            cedula = Long.parseLong(tfCedula.getText());
+
+            nombre = tfNombre.getText();
+            nombreC = tfNombreComercial.getText();
+            correo = tfCorreo.getText();
+            pais = tfPais.getText();
+            provincia = tfProvincia.getText();
+            ciudad = tfCiudad.getText();
+            descripcion = jtDireccion.getText();
+            System.out.println(tfCodigo.getText());
+            if (tfCodigo.getText().equals("[auto]")) {
+                c.update("INSERT INTO CLIENTE(id_cliente, NOMBRE, NIF,NOMBRE_COMERCIAL, TELEFONO, CORREO) VALUES (null, '"
+                        + nombre+"', "+cedula+", '"+nombreC+"', "+telefono+", '"+correo+"')");
+                consul = c.consultaSP("Select id_cliente from cliente where nombre = '"+nombre+"' and nif = "+cedula+"");
+                consul.next();
+                codigo = Integer.parseInt(consul.getString("id_cliente"));
+                c.update("INSERT INTO DIRECCION(id_direccion, ciudad, provincia, pais, descripcion, id_cliente) values (null, '"
+                        +ciudad+ "', '"+provincia+ "', '"+pais+ "', '"+descripcion+ ", "+codigo+ ")");
             } else {
-                
+                codigo = Integer.parseInt(tfCodigo.getText());
+                consul = c.consultaSP("Select c.*,d.* from cliente c left join direccion d on c.id_clinete = d.id_cliente where id_cliente = " + codigo+"");
+            
+                if (consul.next()) {
+
+                    c.update("update cliente "
+                            + "set nombre = " + nombre
+                            + ", nombre_comercial = " + nombreC
+                            + ", telefono = " + telefono
+                            + ", nif = " + cedula
+                            + ", correo = " + correo
+                            + " where id_cliente = " + codigo+"");
+                    c.update("update direccion"
+                            + "set pais = " + pais
+                            + ", ciudad = " + ciudad
+                            + ", provincia = " + provincia
+                            + "descripcion = " + descripcion
+                            + " where id_cliente = " + codigo+"");
+                }
             }
 
         } catch (SQLException ex) {
@@ -441,8 +461,8 @@ public class Registrousuario extends javax.swing.JFrame {
 
     private void bNuevoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bNuevoMouseClicked
         int respuesta = JOptionPane.YES_NO_OPTION;
-        JOptionPane.showConfirmDialog(null, "Se perderan los cambios sin guardar. \n ¿Desea continuar?", "WARNING",respuesta);
-        if (respuesta == JOptionPane.YES_OPTION){
+        JOptionPane.showConfirmDialog(null, "Se perderan los cambios sin guardar. \n ¿Desea continuar?", "WARNING", respuesta);
+        if (respuesta == JOptionPane.YES_OPTION) {
             tfCedula.setText("");
             tfCiudad.setText("");
             tfCodigo.setText("[auto]");

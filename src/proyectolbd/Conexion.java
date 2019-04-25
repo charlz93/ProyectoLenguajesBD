@@ -17,7 +17,7 @@ public class Conexion {
         this.conec = conec;
     }
 
-    Conexion() {
+    public Conexion() {
         
     }
     public Connection conexion(){
