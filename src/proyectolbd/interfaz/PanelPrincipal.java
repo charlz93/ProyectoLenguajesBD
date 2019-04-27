@@ -172,7 +172,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemCompraActionPerformed
 
     private void jButtonVendedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonVendedorMouseClicked
-       
+       Vendedor vn = new Vendedor();
+       vn.setVisible(true);
+       this.dispose();
         
     }//GEN-LAST:event_jButtonVendedorMouseClicked
 
@@ -189,7 +191,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonProductosActionPerformed
 
     private void jButtonProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonProductosMouseClicked
-      
+      Producto pto = new Producto();
+      pto.setVisible(true);
+      this.dispose();
         
     }//GEN-LAST:event_jButtonProductosMouseClicked
 
