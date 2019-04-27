@@ -8,7 +8,7 @@ package proyectolbd;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import proyectolbd.interfaz.iniciosesion;
+import proyectolbd.interfaz.InicioSesion;
 
 /**
  *
