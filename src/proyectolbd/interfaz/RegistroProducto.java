@@ -364,7 +364,7 @@ public class RegistroProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_bGuardarMouseClicked
 
     private void tfBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfBuscarKeyReleased
-        buscar(tfBuscar.getText());
+       // buscar(tfBuscar.getText());
     }//GEN-LAST:event_tfBuscarKeyReleased
 
     private void jCancelarTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCancelarTableMouseClicked
