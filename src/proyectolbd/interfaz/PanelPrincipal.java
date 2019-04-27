@@ -191,7 +191,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonProductosActionPerformed
 
     private void jButtonProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonProductosMouseClicked
-      Producto pto = new Producto();
+      RegistroProducto pto = new RegistroProducto();
       pto.setVisible(true);
       this.dispose();
         
