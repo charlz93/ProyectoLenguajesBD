@@ -27,21 +27,151 @@ public class PanelPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jButtonVendedor = new javax.swing.JButton();
+        jButtonCliente = new javax.swing.JButton();
+        jButtonProductos = new javax.swing.JButton();
+        jButtonAlmacen = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenuFicheros = new javax.swing.JMenu();
+        jMenuFactura = new javax.swing.JMenu();
+        jMenuItemVenta = new javax.swing.JMenuItem();
+        jMenuItemCompra = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jButtonVendedor.setText("Vendedor");
+        jButtonVendedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonVendedorMouseClicked(evt);
+            }
+        });
+
+        jButtonCliente.setText("Clientes");
+        jButtonCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonClienteMouseClicked(evt);
+            }
+        });
+
+        jButtonProductos.setText("Productos");
+        jButtonProductos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonProductosMouseClicked(evt);
+            }
+        });
+        jButtonProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonProductosActionPerformed(evt);
+            }
+        });
+
+        jButtonAlmacen.setText("Almacén");
+        jButtonAlmacen.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonAlmacenMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonVendedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonProductos, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonAlmacen, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                    .addComponent(jButtonCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(45, 45, 45))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonVendedor, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                    .addComponent(jButtonCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(65, 65, 65)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonProductos, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                    .addComponent(jButtonAlmacen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(114, Short.MAX_VALUE))
+        );
+
+        jMenuFicheros.setText("Ficheros");
+        jMenuBar1.add(jMenuFicheros);
+
+        jMenuFactura.setText("Factura");
+
+        jMenuItemVenta.setText("Venta");
+        jMenuItemVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemVentaActionPerformed(evt);
+            }
+        });
+        jMenuFactura.add(jMenuItemVenta);
+
+        jMenuItemCompra.setText("Compra");
+        jMenuItemCompra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCompraActionPerformed(evt);
+            }
+        });
+        jMenuFactura.add(jMenuItemCompra);
+
+        jMenuBar1.add(jMenuFactura);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 553, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 361, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItemVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemVentaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemVentaActionPerformed
+
+    private void jMenuItemCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCompraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemCompraActionPerformed
+
+    private void jButtonVendedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonVendedorMouseClicked
+       
+        
+    }//GEN-LAST:event_jButtonVendedorMouseClicked
+
+    private void jButtonClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonClienteMouseClicked
+       
+        
+    }//GEN-LAST:event_jButtonClienteMouseClicked
+
+    private void jButtonProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProductosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonProductosActionPerformed
+
+    private void jButtonProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonProductosMouseClicked
+      
+        
+    }//GEN-LAST:event_jButtonProductosMouseClicked
+
+    private void jButtonAlmacenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAlmacenMouseClicked
+        
+        
+    }//GEN-LAST:event_jButtonAlmacenMouseClicked
 
     /**
      * @param args the command line arguments
@@ -79,5 +209,15 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonAlmacen;
+    private javax.swing.JButton jButtonCliente;
+    private javax.swing.JButton jButtonProductos;
+    private javax.swing.JButton jButtonVendedor;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenuFactura;
+    private javax.swing.JMenu jMenuFicheros;
+    private javax.swing.JMenuItem jMenuItemCompra;
+    private javax.swing.JMenuItem jMenuItemVenta;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
