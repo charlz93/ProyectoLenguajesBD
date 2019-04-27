@@ -8,7 +8,7 @@ create table vendedor(id_vendedor number, nombre varchar2(50), usuario varchar2(
 
 create table factura_lin(id number, id_factura number, tipo varchar2(2), num_lin number, id_producto number,cantidad number, precio number, descuento number, id_almacen number);
 
-create table producto(id_producto number, nombre varchar2(50), descripcion varchar2(60), tipo varchar2(50), precio number(5,2),impueto number(5,2));
+create table producto(id_producto number, nombre varchar2(50), descripcion varchar2(60), tipo varchar2(50), precio number(5,2),impuesto number(5,2));
 
 create table almacen(id_almacen number, descripcion varchar2(30),direccion varchar(40));
 

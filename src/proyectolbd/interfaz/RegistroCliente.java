@@ -208,6 +208,11 @@ public class RegistroCliente extends javax.swing.JFrame {
                 bGuardarMouseClicked(evt);
             }
         });
+        bGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bGuardarActionPerformed(evt);
+            }
+        });
 
         bBuscar.setText("Buscar");
         bBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -405,7 +410,7 @@ public class RegistroCliente extends javax.swing.JFrame {
                 fClientes.dispose();
             }
         } catch (SQLException ex) {
-            Logger.getLogger(InicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RegistroCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jSelecionarActionPerformed
 
@@ -441,28 +446,29 @@ public class RegistroCliente extends javax.swing.JFrame {
                         +ciudad+ "', '"+provincia+ "', '"+pais+ "', '"+descripcion+ "', "+codigo+ ")");
             } else {
                 codigo = Integer.parseInt(tfCodigo.getText());
-                consul = c.consultaSP("Select c.*,d.* from cliente c left join direccion d on c.id_clinete = d.id_cliente where id_cliente = " + codigo+"");
+                consul = c.consultaSP("Select c.id_cliente from cliente c left join direccion d on c.id_cliente = d.id_cliente where c.id_cliente = " + codigo+"");
             
                 if (consul.next()) {
 
                     c.update("update cliente "
-                            + "set nombre = " + nombre
-                            + ", nombre_comercial = " + nombreC
-                            + ", telefono = " + telefono
+                            + "set nombre = '" + nombre
+                            + "', nombre_comercial = '" + nombreC
+                            + "', telefono = " + telefono
                             + ", nif = " + cedula
-                            + ", correo = " + correo
-                            + " where id_cliente = " + codigo+"");
-                    c.update("update direccion"
-                            + "set pais = " + pais
-                            + ", ciudad = " + ciudad
-                            + ", provincia = " + provincia
-                            + "descripcion = " + descripcion
-                            + " where id_cliente = " + codigo+"");
+                            + ", correo = '" + correo
+                            + "' where id_cliente = " + codigo);
+                    c.update("update direccion "
+                            + "set pais = '" + pais
+                            + "', ciudad = '" + ciudad
+                            + "', provincia = '" + provincia
+                            + "', descripcion = '" + descripcion
+                            + "' where id_cliente = " + codigo);
                 }
             }
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
+            Logger.getLogger(RegistroCliente.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             JOptionPane.showMessageDialog(null, "Cliente Guardado con Exito");
             this.dispose();
@@ -491,6 +497,10 @@ public class RegistroCliente extends javax.swing.JFrame {
     private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bCancelarActionPerformed
+
+    private void bGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bGuardarActionPerformed
 
     /**
      * @param args the command line arguments

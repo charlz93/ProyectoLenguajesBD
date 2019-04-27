@@ -152,3 +152,4 @@ for each row
 begin
  sp_stock(:new.id_producto);
 end;
+

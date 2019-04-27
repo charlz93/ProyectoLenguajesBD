@@ -21,7 +21,12 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        
+        Consulta c = new Consulta();
+        try {
+            c.update("update direccion set pais = 'CR' where id_cliente = 4");
+        } catch (SQLException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
     
