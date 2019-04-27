@@ -11,9 +11,6 @@ package proyectolbd.interfaz;
  */
 public class PanelPrincipal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form PanelPrincipal
-     */
     public PanelPrincipal() {
         initComponents();
     }
@@ -46,11 +43,21 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 jButtonVendedorMouseClicked(evt);
             }
         });
+        jButtonVendedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVendedorActionPerformed(evt);
+            }
+        });
 
         jButtonCliente.setText("Clientes");
         jButtonCliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonClienteMouseClicked(evt);
+            }
+        });
+        jButtonCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClienteActionPerformed(evt);
             }
         });
 
@@ -70,6 +77,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jButtonAlmacen.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonAlmacenMouseClicked(evt);
+            }
+        });
+        jButtonAlmacen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAlmacenActionPerformed(evt);
             }
         });
 
@@ -108,6 +120,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jMenuFactura.setText("Factura");
 
         jMenuItemVenta.setText("Venta");
+        jMenuItemVenta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItemVentaMouseClicked(evt);
+            }
+        });
         jMenuItemVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemVentaActionPerformed(evt);
@@ -116,6 +133,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jMenuFactura.add(jMenuItemVenta);
 
         jMenuItemCompra.setText("Compra");
+        jMenuItemCompra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItemCompraMouseClicked(evt);
+            }
+        });
         jMenuItemCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemCompraActionPerformed(evt);
@@ -155,6 +177,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVendedorMouseClicked
 
     private void jButtonClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonClienteMouseClicked
+       RegistroCliente cl = new RegistroCliente();
+       cl.setVisible(true);
+       this.dispose();
        
         
     }//GEN-LAST:event_jButtonClienteMouseClicked
@@ -169,9 +194,35 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonProductosMouseClicked
 
     private void jButtonAlmacenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAlmacenMouseClicked
-        
+      Almacen a1 = new Almacen();
+      a1.setVisible(true);
+      this.dispose();
+      
+       
         
     }//GEN-LAST:event_jButtonAlmacenMouseClicked
+
+    private void jButtonVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVendedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonVendedorActionPerformed
+
+    private void jMenuItemVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItemVentaMouseClicked
+    
+        
+    }//GEN-LAST:event_jMenuItemVentaMouseClicked
+
+    private void jMenuItemCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItemCompraMouseClicked
+       
+        
+    }//GEN-LAST:event_jMenuItemCompraMouseClicked
+
+    private void jButtonAlmacenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlmacenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAlmacenActionPerformed
+
+    private void jButtonClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonClienteActionPerformed
 
     /**
      * @param args the command line arguments
