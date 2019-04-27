@@ -5,14 +5,6 @@
  */
 package proyectolbd.interfaz;
 
-import java.sql.CallableStatement;
-import java.sql.SQLException;
-import java.sql.Types;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import proyectolbd.Consulta;
-
 /**
  *
  * @author Sebastian
@@ -20,14 +12,12 @@ import proyectolbd.Consulta;
 public class InicioSesion extends javax.swing.JFrame {
 
     /**
-     * Creates new form iniciosesion
+     * Creates new form InicioSesion
      */
     public InicioSesion() {
         initComponents();
-        setLocationRelativeTo(null);
     }
-    public static String nombreVendedor;
-    public static int codigoVendedor;
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,140 +27,21 @@ public class InicioSesion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jBInicio = new javax.swing.JButton();
-        jbCancelar = new javax.swing.JButton();
-        jPassword = new javax.swing.JPasswordField();
-        jLabelpassword = new javax.swing.JLabel();
-        jUsuario = new javax.swing.JTextField();
-        jLabelusername = new javax.swing.JLabel();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jBInicio.setText("Iniciar Sesión");
-        jBInicio.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jBInicioMouseClicked(evt);
-            }
-        });
-
-        jbCancelar.setText("Cancelar");
-        jbCancelar.setToolTipText("");
-        jbCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jbCancelarMouseClicked(evt);
-            }
-        });
-        jbCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbCancelarActionPerformed(evt);
-            }
-        });
-
-        jPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordActionPerformed(evt);
-            }
-        });
-
-        jLabelpassword.setText("Contraseña");
-
-        jLabelusername.setText("Nombre de usuario");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(288, Short.MAX_VALUE)
-                .addComponent(jBInicio)
-                .addGap(18, 18, 18)
-                .addComponent(jbCancelar)
-                .addGap(100, 100, 100))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelpassword)
-                    .addComponent(jLabelusername))
-                .addGap(98, 98, 98)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jUsuario)
-                    .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelusername))
-                .addGap(58, 58, 58)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelpassword, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBInicio)
-                    .addComponent(jbCancelar))
-                .addGap(28, 28, 28))
-        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordActionPerformed
-
-    private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbCancelarActionPerformed
-
-    private void jbCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbCancelarMouseClicked
-        System.exit(0);
-    }//GEN-LAST:event_jbCancelarMouseClicked
-
-    private void jBInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBInicioMouseClicked
-        try {
-            String usuario = jUsuario.getText();
-            String pass = String.valueOf(jPassword.getPassword());
-            if(!usuario.isEmpty() || !pass.isEmpty()){
-            Consulta con = new Consulta();
-            CallableStatement cs = con.consultaFN("{? = call inicioSesion(?,?,?,?)}");
-            cs.registerOutParameter(1, Types.CHAR);
-            cs.setString(2,usuario);
-            cs.setString(3,pass);
-            cs.registerOutParameter(4, Types.VARCHAR);
-            cs.registerOutParameter(5, Types.INTEGER);
-            cs.executeUpdate();
-            if (cs.getString(1).equals("T")){
-                nombreVendedor = cs.getString(4);
-                codigoVendedor = cs.getInt(5);
-                this.dispose();
-                PanelPrincipal pPanel = new PanelPrincipal();
-                pPanel.setVisible(true);
-            }else{
-                JOptionPane.showMessageDialog(this,"Usuario o Contraseña incorrecto.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-            }else{
-                JOptionPane.showMessageDialog(this,"Usuario o Contraseña en blanco", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(InicioSesion.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jBInicioMouseClicked
 
     /**
      * @param args the command line arguments
@@ -198,25 +69,15 @@ public class InicioSesion extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(InicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-              InicioSesion inicio = new InicioSesion();
-              inicio.setVisible(true);
-              inicio.setLocationRelativeTo(null);
+                new InicioSesion().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBInicio;
-    private javax.swing.JLabel jLabelpassword;
-    private javax.swing.JLabel jLabelusername;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPassword;
-    private javax.swing.JTextField jUsuario;
-    private javax.swing.JButton jbCancelar;
     // End of variables declaration//GEN-END:variables
 }
