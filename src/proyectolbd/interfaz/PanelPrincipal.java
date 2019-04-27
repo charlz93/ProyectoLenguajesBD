@@ -16,6 +16,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
      */
     public PanelPrincipal() {
         initComponents();
+        setLocationRelativeTo(null);
+        jVendedor.setText(iniciosesion.nombreVendedor);
     }
 
     /**
@@ -87,8 +89,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(34, Short.MAX_VALUE)
+                .addComponent(jVendedor)
+                .addGap(47, 47, 47)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -100,6 +104,63 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 .addComponent(jButtonClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(65, Short.MAX_VALUE))
         );
+
+        jMenu1.setText("Ficheros");
+
+        miClientes.setText("Clientes");
+        miClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miClientesActionPerformed(evt);
+            }
+        });
+        jMenu1.add(miClientes);
+
+        jMenuItem1.setText("Vendedores");
+        jMenuItem1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenuItem1.setIconTextGap(1);
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem3.setText("Productos");
+        jMenu1.add(jMenuItem3);
+
+        jMenuItem2.setText("Almacenes");
+        jMenu1.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Compras");
+
+        jMenuItem5.setText("Facturar");
+        jMenu2.add(jMenuItem5);
+
+        jMenuItem6.setText("Anular");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem6);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Ventas");
+
+        jMenuItem7.setText("Facturar");
+        jMenu3.add(jMenuItem7);
+
+        jMenuItem8.setText("Nota de Credito");
+        jMenu3.add(jMenuItem8);
+
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("Inventario");
+
+        jMenuItem9.setText("Stock");
+        jMenu4.add(jMenuItem9);
+
+        jMenuBar1.add(jMenu4);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -134,6 +195,16 @@ public class PanelPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonVendedoresMouseClicked
 
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void miClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miClientesActionPerformed
+        RegistroCliente rc = new RegistroCliente();
+        rc.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_miClientesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -165,6 +236,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new PanelPrincipal().setVisible(true);
+                
             }
         });
     }
@@ -176,5 +248,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButtonProductos;
     private javax.swing.JButton jButtonVendedores;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jVendedor;
+    private javax.swing.JMenuItem miClientes;
     // End of variables declaration//GEN-END:variables
 }
