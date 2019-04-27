@@ -370,7 +370,7 @@ public class RegistroCliente extends javax.swing.JFrame {
 
             tableModel1(consul);
         } catch (SQLException ex) {
-            Logger.getLogger(iniciosesion.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InicioSesion.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_bBuscarActionPerformed
@@ -405,7 +405,7 @@ public class RegistroCliente extends javax.swing.JFrame {
                 fClientes.dispose();
             }
         } catch (SQLException ex) {
-            Logger.getLogger(iniciosesion.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InicioSesion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jSelecionarActionPerformed
 

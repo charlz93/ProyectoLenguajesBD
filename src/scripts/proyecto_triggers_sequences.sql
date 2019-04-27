@@ -146,3 +146,9 @@ INCREMENT BY 1
 START WITH 1 
 NOCACHE;
 
+Create or replace trigger Creacion_Stock
+after insert on producto
+for each row
+begin
+ sp_stock(:new.id_producto);
+end;

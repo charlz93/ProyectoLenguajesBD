@@ -51,3 +51,17 @@ create or replace package body factura as
 end factura;
 
 
+create or replace procedure sp_stock(id_producto in number) is
+id_a almacen.id_almacen%TYPE;
+Cursor c1 is 
+    select id_almacen from proyecto.almacen;
+begin
+    OPEN c1;
+    loop
+    FETCH c1 INTO id_a;
+    INSERT into stock(id_stock,id_producto,cantidad,id_almacen) values (null,id_producto,0,id_a);
+    
+    exit when c1%notfound;
+    end loop;
+    close c1;
+end;    
